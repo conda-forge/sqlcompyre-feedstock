@@ -1,5 +1,5 @@
 {% set name = "sqlcompyre" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sqlcompyre-{{ version }}.tar.gz
-  sha256: 4e7206c6752a7e5c7d5e82b38730343b12e339ec2d1999c74f2fd4db72591bd1
+  sha256: 55320eb18aad4aa899665259af0ce498c92b92c9118f3fec01535e44b06392c3
 
 build:
   entry_points:
