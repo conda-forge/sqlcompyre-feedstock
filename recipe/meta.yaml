@@ -1,3 +1,4 @@
+{% set python_min = '3.11' %}
 {% set name = "sqlcompyre" %}
 {% set version = "1.0.1" %}
 
@@ -6,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sqlcompyre-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sqlcompyre-{{ version }}.tar.gz
   sha256: 55320eb18aad4aa899665259af0ce498c92b92c9118f3fec01535e44b06392c3
 
 build:
@@ -14,17 +15,17 @@ build:
     - compyre = sqlcompyre.cli.__main__:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.11
+    - python {{ python_min }}
     - setuptools
     - setuptools-scm
     - wheel
     - pip
   run:
-    - python >=3.11
+    - python >={{ python_min }}
     - click
     - pydantic >=2,<3
     - pyyaml
@@ -40,6 +41,7 @@ test:
     - compyre --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/quantco/sqlcompyre
