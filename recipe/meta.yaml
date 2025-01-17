@@ -1,6 +1,6 @@
-{% set python_min = '3.11' %}
+{% set python_min = "3.11" %}
 {% set name = "sqlcompyre" %}
-{% set version = "1.0.1" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sqlcompyre-{{ version }}.tar.gz
-  sha256: 55320eb18aad4aa899665259af0ce498c92b92c9118f3fec01535e44b06392c3
+  sha256: cdca99a3ea7e5ef31b87243b0ae1334ddb31784a5577c92f6620c4d72c19d9a4
 
 build:
   entry_points:
     - compyre = sqlcompyre.cli.__main__:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
